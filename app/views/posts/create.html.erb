@@ -1,0 +1,19 @@
+<% if @post.errors.any? %>
+    <div id="error_explanation"> 
+        <h2>
+            <%= pluralize(@post.errors.count, "error") %>
+            prohibited this post from being saved:
+        </h2>
+        <ul>
+            <% @post.errors.full_messages.each do |msg|%>
+                <li><%= msg %> </li>
+            <% end%>
+        </ul>
+    </div>
+<%else%>
+    <h1> Post creado</h1>
+<%end%>
+
+<%= link_to "Volver", root_path%>
+
+<!--<button type="button" class="btn btn-primary"><%= link_to "Volver", root_path%></button>-->

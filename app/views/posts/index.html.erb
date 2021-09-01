@@ -1,0 +1,49 @@
+<h1 class="text-center my-5"> Pagina principal</h1>
+
+<table class="table table-bordered ">
+
+        <tr class="text-center bg-info text-white">
+            <th>Title</th>
+            <th>Content</th>
+            <th>Date</th>
+            <th>Image</th>
+        </tr>
+
+        <% @posts.reverse.each do |post| %>
+        <tr class="text-center">
+            <td class="align-middle"><%= post.title %></td>
+            <td class="align-middle"><%= post.content %></td>
+            <!--<td class="align-middle"><%= post.created_at.to_date %></td>-->
+            <td class="align-middle"><%= post.created_at %></td>
+            <td class="align-middle"><img src="<%=post.image%>" alt="" style="width: 75px; height: 60px;"></td>
+    <%end%>
+
+</table>
+
+
+
+<h2 class="text-center mt-5">Formulario</h2>
+
+
+<form method="get" action="/posts/create" id="create_posts" class="mb-5">
+
+  <div class="form-group">
+    <label for="title">Tittle</label>
+    <input name="title" type="text" class="form-control" id="title-form">
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea name="content" type="text" class="form-control" id="content-form"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input name="image" type="text" class="form-control" id="image-form">
+  </div>
+  
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary bg-info">Submit </button>
+  </div>
+
+</form>
